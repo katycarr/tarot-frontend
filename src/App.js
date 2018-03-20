@@ -11,7 +11,7 @@ import { Route, Switch } from 'react-router-dom'
 const style = {
   page: {
     backgroundColor:'rgb(248, 242, 236)',
-    height:'100%'
+    minHeight:'100%'
   }
 }
 

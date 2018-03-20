@@ -2,7 +2,7 @@ import React from 'react'
 import DetailList from '../components/DetailList'
 import Search from '../components/Search'
 
-const baseUrl = 'https://tarotapi.herokuapp.com/cards?q='
+const baseUrl = 'https://tarotapi.herokuapp.com/cards?'
 
 const style = {
 
@@ -13,9 +13,15 @@ class ResultContainer extends React.Component {
     cards:[]
   }
 
-  handleSubmit = input => {
+  handleSubmit = (input, searchBy) => {
     const searchTerm = input.replace(/\s+/g, '-').toLowerCase();
-    fetch(baseUrl+searchTerm)
+    let url;
+    if(searchBy === 'name') {
+      url = baseUrl+'q='+searchTerm
+    } else if (searchBy === 'meaning') {
+      url = baseUrl+'meaning='+searchTerm
+    }
+    fetch(url)
       .then(res => res.json())
       .then(json => this.setState({
         cards:json
