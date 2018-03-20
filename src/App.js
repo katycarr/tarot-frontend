@@ -4,6 +4,7 @@ import CardContainer from './containers/CardContainer'
 import Navbar from './components/Navbar'
 import DetailContainer from './containers/DetailContainer'
 import ResultContainer from './containers/ResultContainer'
+import ReadingContainer from './containers/ReadingContainer'
 
 
 import { Route, Switch } from 'react-router-dom'
@@ -24,6 +25,7 @@ class App extends Component {
         <Switch>
           <Route exact path='/' component={CardContainer} />
           <Route exact path='/search' component={ResultContainer} />
+          <Route exact path='/reading' component={ReadingContainer} />
           <Route exact path='/:suit' component={DetailContainer} />
         </Switch>
       </div>
