@@ -19,6 +19,7 @@ class Navbar extends React.Component {
         <NavLink className='item' to='/wands'>Wands</NavLink>
         <NavLink className='item' to='/cups'>Cups</NavLink>
         <NavLink className='item' to='/swords'>Swords</NavLink>
+        <NavLink className='item' to='/search'>Search</NavLink>
       </div>
     )
   }
