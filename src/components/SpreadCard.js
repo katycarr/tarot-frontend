@@ -2,13 +2,16 @@ import React from 'react'
 
 const style = {
   reversed: {
-    transform:'rotate(180deg)'
+    transform:'rotate(180deg)',
+  },
+  card: {
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
   },
   center: {
     margin:'auto'
   },
   glow: {
-    boxShadow:'0px 0px 5px rgba(81, 203, 238, 1)',
+    boxShadow:'0px 0px 5px rgba(81, 203, 238, 1), 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)',
     transition: 'all 0.30s ease-in-out',
   },
   list: {
@@ -47,7 +50,7 @@ class SpreadCard extends React.Component {
 
     return(
       <div style={style.list}>
-        <div className='ui small image' style={this.state.glow ? style.glow : null} onClick={this.toggleVisibility} onMouseEnter={this.toggleGlow} onMouseLeave={this.toggleGlow}>
+        <div className='ui small image' style={this.state.glow ? style.glow : style.card} onClick={this.toggleVisibility} onMouseEnter={this.toggleGlow} onMouseLeave={this.toggleGlow}>
           <img src={card.img_url} alt={card.name} style={this.props.isReversed ? style.reversed : null}></img>
         </div>
         <div className='' style={this.state.display ? {display:'block'} : {display:'none'}}>

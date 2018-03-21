@@ -20,7 +20,11 @@ class ReadingContainer extends React.Component {
   getCards = () => {
     let ids = []
     for (var i = 0; i < 3; i++) {
-      ids = [...ids, Math.floor(Math.random()*78) + 1]
+      let newNum = Math.floor(Math.random()*78) + 1
+      while (ids.includes(newNum)) {
+        newNum = Math.floor(Math.random()*78) + 1
+      }
+      ids = [...ids, newNum]
     }
     ids.forEach(id => {
       fetch(baseUrl+id)

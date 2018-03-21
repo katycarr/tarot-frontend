@@ -16,17 +16,36 @@ const style = {
   }
 }
 
+const pages = [
+  {
+    path:'/',
+    component:CardContainer,
+  },
+  {
+    path:'/search',
+    component:ResultContainer,
+  },
+  {
+    path:'/reading',
+    component:ReadingContainer,
+  },
+  {
+    path:'/:suit',
+    component:DetailContainer,
+  },
+]
+
 
 class App extends Component {
   render() {
+    const routes = pages.map(page => {
+      return <Route exact path={page.path} component={page.component} />
+    })
     return (
       <div className="App" style={style.page}>
         <Navbar />
         <Switch>
-          <Route exact path='/' component={CardContainer} />
-          <Route exact path='/search' component={ResultContainer} />
-          <Route exact path='/reading' component={ReadingContainer} />
-          <Route exact path='/:suit' component={DetailContainer} />
+          {routes}
         </Switch>
       </div>
     );
